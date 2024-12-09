@@ -1,3 +1,9 @@
+import { Link } from "react-router-dom";
+import { MdModeEdit } from "react-icons/md";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import Modal from "../components/Modal";
+import { useState } from "react";
+
 function Home({ todos, setTodo }) {
   const deleteButton = (id) => {
     setTodo((prev) => prev.filter((todo) => todo.id !== id));
@@ -5,6 +11,7 @@ function Home({ todos, setTodo }) {
 
   return (
     <>
+      <Modal />
       <ul className="mx-auto flex max-w-5xl flex-wrap gap-10">
         {todos.map((todo) => (
           <li key={todo.id} className="card mt-10 w-96 bg-neutral">
@@ -16,12 +23,20 @@ function Home({ todos, setTodo }) {
                   : "No description available"}
               </p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">More</button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() =>
+                    document.getElementById("edit-todo").showModal()
+                  }
+                >
+                  {" "}
+                  <MdModeEdit />{" "}
+                </button>
                 <button
                   onClick={() => deleteButton(todo.id)}
                   className="btn btn-accent"
                 >
-                  Delete
+                  <RiDeleteBin6Line />
                 </button>
               </div>
             </div>

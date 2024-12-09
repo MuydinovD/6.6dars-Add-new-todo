@@ -34,7 +34,7 @@ function Create({ setTodo }) {
       <form onSubmit={handleSubmit} className="form max-w-xs">
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">Enter your name</span>
+            <span className="label-text">Title</span>
           </div>
           <input
             onChange={(e) => setTitle(e.target.value)}
@@ -47,7 +47,7 @@ function Create({ setTodo }) {
 
         <label className="form-control">
           <div className="label">
-            <span className="label-text">Enter your bio</span>
+            <span className="label-text">Description</span>
           </div>
           <textarea
             onChange={(e) => setDesc(e.target.value)}
